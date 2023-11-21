@@ -7,5 +7,7 @@
         public string Nome { get; set; }
 
         public ReadEnderecoDto ReadEnderecoDto { get; set; }
+
+        public ICollection<ReadSessaoDto> Sessoes { get; set; }
     }
 }
