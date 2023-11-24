@@ -3,6 +3,7 @@ using System;
 using FilmesAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(FilmeContext))]
-    partial class FilmeContextModelSnapshot : ModelSnapshot
+    [Migration("20231122011046_Cinema e Filme")]
+    partial class CinemaeFilme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,10 +89,13 @@ namespace FilmesAPI.Migrations
 
             modelBuilder.Entity("FilmesAPI.Models.Sessao", b =>
                 {
-                    b.Property<int?>("FilmeId")
+                    b.Property<int>("FilmeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CinemaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.HasKey("FilmeId", "CinemaId");
